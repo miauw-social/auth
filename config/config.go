@@ -14,10 +14,10 @@ type Config struct {
 	RabbitMQ  string `env:"RABBITMQ,required"`
 }
 
-func GetConfig() Config {
+func GetConfig() *Config {
 	cfg := Config{}
 	if err := env.Parse(&cfg); err != nil {
 		log.Fatalf("Error parsing config: %v", err)
 	}
-	return cfg
+	return &cfg
 }
